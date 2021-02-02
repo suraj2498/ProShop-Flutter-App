@@ -30,10 +30,10 @@ class Products with ChangeNotifier {
     String url;
 
     if(filterByUser){
-      url = 'https://shop-app-b2c74-default-rtdb.firebaseio.com/products.json?auth=$authToken&orderBy="creatorId"&equalTo="$userId"';
+      url = '{API}';
     }
     else{
-      url = 'https://shop-app-b2c74-default-rtdb.firebaseio.com/products.json?auth=$authToken';
+      url = '{API}';
     }
 
     try {
@@ -43,7 +43,7 @@ class Products with ChangeNotifier {
       
       if(extractedData == null) return;
 
-      url = 'https://shop-app-b2c74-default-rtdb.firebaseio.com/userFavorites/$userId.json?auth=$authToken';
+      url = '{API}';
       final favoriteResponse = await http.get(url);
       final favoriteData = json.decode(favoriteResponse.body);
 
@@ -71,7 +71,7 @@ class Products with ChangeNotifier {
   Future<void> addProduct(Product product) async {
 
     // async auto returns a future
-    final url = 'https://shop-app-b2c74-default-rtdb.firebaseio.com/products.json?auth=$authToken';
+    final url = '{API}';
 
     try {
       final response = await http.post(
@@ -102,7 +102,7 @@ class Products with ChangeNotifier {
   }
 
   Future<void> updateProduct(String id, Product newProduct) async {
-    final url = 'https://shop-app-b2c74-default-rtdb.firebaseio.com/products/$id.json?auth=$authToken';
+    final url = '{API}';
     final itemIndex = _items.indexWhere((element) => element.id == id);
 
     try {
@@ -128,7 +128,7 @@ class Products with ChangeNotifier {
 
   Future<void> deleteProduct(String id) async {
     // optimistic updating 
-    final url = 'https://shop-app-b2c74-default-rtdb.firebaseio.com/products/$id.json?auth=$authToken';
+    final url = '{API}';
     final existingProductIndex = _items.indexWhere((element) => element.id == id);
     var existingProduct = _items[existingProductIndex];
     _items.removeAt(existingProductIndex);
