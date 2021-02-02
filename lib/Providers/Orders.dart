@@ -34,7 +34,7 @@ class Orders with ChangeNotifier{
   }
 
   Future<void> fetchOrders() async {
-    final url = 'https://shop-app-b2c74-default-rtdb.firebaseio.com/orders/$userId.json?auth=$authToken';
+    final url = '{API}';
     final List<OrderItem> loadedOrders = [];
     
     try {
@@ -63,7 +63,7 @@ class Orders with ChangeNotifier{
   }
 
   Future<void> addOrder(List<CartItem> cartProducts, double total) async {
-    final url = 'https://shop-app-b2c74-default-rtdb.firebaseio.com/orders/$userId.json?auth=$authToken';
+    final url = '{API}';
     final currentTime = DateTime.now();
 
     try {
