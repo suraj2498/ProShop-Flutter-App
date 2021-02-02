@@ -22,7 +22,7 @@ class Product with ChangeNotifier{
   });
 
   Future<void> toggleFavoriteStatus(String authToken, String userId) async {
-    final url = 'https://shop-app-b2c74-default-rtdb.firebaseio.com/userFavorites/$userId/$id.json?auth=$authToken';
+    final url = '{API}';
 
     isFavorite = !isFavorite;
     try {
